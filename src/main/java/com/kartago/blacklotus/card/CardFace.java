@@ -21,7 +21,7 @@ public class CardFace {
     private Long id;
 
     private Card card;
-    private int faceIndex;
+    private int faceIndex; //Card + FaceIndex = unique
 
     private String name;
     private String manaCost;

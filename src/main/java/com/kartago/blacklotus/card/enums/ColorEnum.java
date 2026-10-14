@@ -16,4 +16,8 @@ public enum ColorEnum {
     ColorEnum(String code) {
         this.code = code; // Aquí "W" se guarda dentro de WHITE, "U" dentro de BLUE, etc.
     }
+
+    public String getCode() {
+        return code;
+    }
 }

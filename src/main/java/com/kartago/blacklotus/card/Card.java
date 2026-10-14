@@ -2,16 +2,15 @@ package com.kartago.blacklotus.card;
 
 import com.kartago.blacklotus.card.enums.ColorEnum;
 import com.kartago.blacklotus.card.enums.FormatEnum;
+import com.kartago.blacklotus.card.enums.LayoutEnum;
 import com.kartago.blacklotus.card.enums.LegalityEnum;
+import com.kartago.blacklotus.printing.Printing;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -24,10 +23,14 @@ public class Card {
     @Column(unique = true)
     private UUID oracleId;
 
+    private List<Printing> printings = new ArrayList<>();
+    private List<CardFace> cardFaces = new ArrayList<>();
+
     private String name;
     private int manaValue;
     private Set<ColorEnum> colorIdentity;
 
-    private Map<FormatEnum, LegalityEnum> legalities = new EnumMap<>(FormatEnum.class);
+    private LayoutEnum layout;
     private boolean isGameChanger;
+    private Map<FormatEnum, LegalityEnum> legalities = new EnumMap<>(FormatEnum.class);
 }
