@@ -25,9 +25,15 @@ public class Printing {
     @Column(unique = true)
     private UUID scryfallId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id", nullable = false)
     private Card card;
+
+    @OneToMany(mappedBy = "printing", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PrintingFace> printingFaces = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "set_id", nullable = false)
     private MagicSet set;
     private String collectorNumber;
     private LocalDate releasedAt;

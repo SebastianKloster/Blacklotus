@@ -23,7 +23,10 @@ public class Card {
     @Column(unique = true)
     private UUID oracleId;
 
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Printing> printings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CardFace> cardFaces = new ArrayList<>();
 
     private String name;
