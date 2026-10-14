@@ -1,9 +1,7 @@
 package com.kartago.blacklotus.card;
 
 import com.kartago.blacklotus.card.enums.ColorEnum;
-import com.kartago.blacklotus.card.enums.FormatEnum;
 import com.kartago.blacklotus.card.enums.LayoutEnum;
-import com.kartago.blacklotus.card.enums.LegalityEnum;
 import com.kartago.blacklotus.printing.Printing;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,16 +22,18 @@ public class Card {
     private UUID oracleId;
 
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Printing> printings = new ArrayList<>();
+    private List<CardFace> cardFaces = new ArrayList<>();
+    private LayoutEnum layout;
 
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CardFace> cardFaces = new ArrayList<>();
+    private List<Printing> printings = new ArrayList<>();
 
     private String name;
     private int manaValue;
     private Set<ColorEnum> colorIdentity;
 
-    private LayoutEnum layout;
+
     private boolean isGameChanger;
-    private Map<FormatEnum, LegalityEnum> legalities = new EnumMap<>(FormatEnum.class);
+    @Embedded
+    private Legalities legalities;
 }

@@ -2,6 +2,7 @@ package com.kartago.blacklotus.printing;
 
 import jakarta.persistence.*;
 
+@Entity
 public class PrintingFace {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
