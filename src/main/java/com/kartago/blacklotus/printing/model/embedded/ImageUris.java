@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.printing;
+package com.kartago.blacklotus.printing.model.embedded;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

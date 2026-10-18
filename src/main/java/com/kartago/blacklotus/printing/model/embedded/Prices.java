@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.printing;
+package com.kartago.blacklotus.printing.model.embedded;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Getter
-@Embeddable
 @NoArgsConstructor
+@Embeddable
 public class Prices {
     @Column(precision = 10, scale = 2)
     private BigDecimal priceUsd;

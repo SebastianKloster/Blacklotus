@@ -1,8 +1,9 @@
-package com.kartago.blacklotus.printing;
+package com.kartago.blacklotus.printing.model;
 
 import com.kartago.blacklotus.card.model.Card;
 import com.kartago.blacklotus.expansion.Expansion;
-import com.kartago.blacklotus.printing.enums.FinishEnum;
+import com.kartago.blacklotus.printing.model.embedded.Prices;
+import com.kartago.blacklotus.printing.model.enums.FinishEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

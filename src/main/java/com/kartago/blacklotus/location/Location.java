@@ -15,6 +15,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_user_name", // Nombre de la restricción
+                        columnNames = {"user_id", "name"} // Nombres de las columnas en la DB
+                )
+        }
+)
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

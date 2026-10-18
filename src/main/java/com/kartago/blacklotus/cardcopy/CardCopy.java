@@ -2,8 +2,8 @@ package com.kartago.blacklotus.cardcopy;
 
 import com.kartago.blacklotus.deck.model.enums.DeckZoneEnum;
 import com.kartago.blacklotus.location.Location;
-import com.kartago.blacklotus.printing.Printing;
-import com.kartago.blacklotus.printing.enums.FinishEnum;
+import com.kartago.blacklotus.printing.model.Printing;
+import com.kartago.blacklotus.printing.model.enums.FinishEnum;
 import com.kartago.blacklotus.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

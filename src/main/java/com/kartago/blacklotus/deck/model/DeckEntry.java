@@ -1,7 +1,7 @@
 package com.kartago.blacklotus.deck.model;
 
 import com.kartago.blacklotus.deck.model.enums.DeckZoneEnum;
-import com.kartago.blacklotus.printing.Printing;
+import com.kartago.blacklotus.printing.model.Printing;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +13,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_deck_printing_zone", // Nombre de la restricción
+                        columnNames = {"deck_id", "printing_id", "deck_zone"} // Nombres de las columnas en la DB
+                )
+        }
+)
 public class DeckEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

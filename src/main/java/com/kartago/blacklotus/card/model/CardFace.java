@@ -12,6 +12,14 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_card_face_index", // Nombre de la restricción
+                        columnNames = {"card_id", "face_index"} // Nombres de las columnas en la DB
+                )
+        }
+)
 public class CardFace {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

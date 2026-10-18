@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.printing.enums;
+package com.kartago.blacklotus.printing.model.enums;
 
 public enum FinishEnum {
     NON_FOIL,
