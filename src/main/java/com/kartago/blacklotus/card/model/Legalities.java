@@ -1,6 +1,6 @@
-package com.kartago.blacklotus.card;
+package com.kartago.blacklotus.card.model;
 
-import com.kartago.blacklotus.card.enums.LegalityEnum;
+import com.kartago.blacklotus.card.model.enums.LegalityEnum;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

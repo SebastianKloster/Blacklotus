@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.card.enums;
+package com.kartago.blacklotus.card.model.enums;
 
 public enum ColorEnum {
     // PASO 1: Aquí se definen los valores.

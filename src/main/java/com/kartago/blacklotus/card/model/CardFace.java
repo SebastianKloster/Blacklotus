@@ -1,6 +1,6 @@
-package com.kartago.blacklotus.card;
+package com.kartago.blacklotus.card.model;
 
-import com.kartago.blacklotus.card.enums.ColorEnum;
+import com.kartago.blacklotus.card.model.enums.ColorEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

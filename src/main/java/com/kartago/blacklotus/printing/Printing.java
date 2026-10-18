@@ -1,6 +1,6 @@
 package com.kartago.blacklotus.printing;
 
-import com.kartago.blacklotus.card.Card;
+import com.kartago.blacklotus.card.model.Card;
 import com.kartago.blacklotus.magicSet.MagicSet;
 import com.kartago.blacklotus.printing.enums.FinishEnum;
 import jakarta.persistence.*;
