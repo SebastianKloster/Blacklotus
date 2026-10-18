@@ -14,6 +14,19 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(
+        indexes = {
+                @Index(name = "idx_card_name", columnList = "name"),
+                @Index(
+                        name = "idx_card_commander_name",
+                        columnList = "commander, name"
+                ),
+                @Index(
+                        name = "idx_card_standard_name",
+                        columnList = "standard, name"
+                )
+        }
+)
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,4 +49,11 @@ public class Card {
     private boolean isGameChanger;
     @Embedded
     private Legalities legalities;
+
+
+
+    public void addPrinting(Printing printing) {
+        printings.add(printing);
+        printing.setCard(this);
+    }
 }

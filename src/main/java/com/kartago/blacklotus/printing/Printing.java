@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class Printing {
     @Column(unique = true)
     private UUID scryfallId;
 
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id", nullable = false)
     private Card card;
