@@ -1,5 +1,7 @@
 package com.kartago.blacklotus.location;
 
+import com.kartago.blacklotus.cardcopy.CardCopy;
+import com.kartago.blacklotus.deck.model.DeckEntry;
 import com.kartago.blacklotus.location.enums.LocationTypeEnum;
 import com.kartago.blacklotus.user.User;
 import jakarta.persistence.*;
@@ -18,7 +20,10 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
