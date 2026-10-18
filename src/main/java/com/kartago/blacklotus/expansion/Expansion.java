@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.magicSet;
+package com.kartago.blacklotus.expansion;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-public class MagicSet {
+public class Expansion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

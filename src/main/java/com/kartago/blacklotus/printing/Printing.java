@@ -1,7 +1,7 @@
 package com.kartago.blacklotus.printing;
 
 import com.kartago.blacklotus.card.model.Card;
-import com.kartago.blacklotus.magicSet.MagicSet;
+import com.kartago.blacklotus.expansion.Expansion;
 import com.kartago.blacklotus.printing.enums.FinishEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,8 +35,8 @@ public class Printing {
     private List<PrintingFace> printingFaces = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "set_id", nullable = false)
-    private MagicSet set;
+    @JoinColumn(name = "expansion_id", nullable = false)
+    private Expansion expansion;
     private String collectorNumber;
     private LocalDate releasedAt;
 
