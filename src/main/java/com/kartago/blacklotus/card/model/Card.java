@@ -1,5 +1,6 @@
 package com.kartago.blacklotus.card.model;
 
+import com.kartago.blacklotus.card.model.embedded.Legalities;
 import com.kartago.blacklotus.card.model.enums.ColorEnum;
 import com.kartago.blacklotus.card.model.enums.LayoutEnum;
 import com.kartago.blacklotus.printing.model.Printing;

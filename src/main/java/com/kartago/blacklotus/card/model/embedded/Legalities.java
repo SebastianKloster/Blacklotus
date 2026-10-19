@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.card.model;
+package com.kartago.blacklotus.card.model.embedded;
 
 import com.kartago.blacklotus.card.model.enums.LegalityEnum;
 import jakarta.persistence.Embeddable;
