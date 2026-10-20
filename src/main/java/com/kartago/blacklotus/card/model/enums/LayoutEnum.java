@@ -24,7 +24,9 @@ public enum LayoutEnum {
     BATTLE("battle"),       // Cartas de tipo Batalla / Asedio (MOM)
 
     // --- MANEJO DE ERRORES Y FUTURAS MECÁNICAS ---
-    UNKNOWN("unknown");
+    UNKNOWN("unknown"),
+    TOKEN("token"),
+    DOUBLE_FACED_TOKEN("double_faced_token");
 
     private final String value;
 

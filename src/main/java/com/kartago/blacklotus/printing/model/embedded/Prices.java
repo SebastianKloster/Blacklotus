@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Getter
+@lombok.AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Prices {

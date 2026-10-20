@@ -37,13 +37,15 @@ public class Card {
 
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CardFace> cardFaces = new ArrayList<>();
+    // Existing databases store ordinals. Append new layouts; do not reorder them.
+    @Enumerated(EnumType.ORDINAL)
     private LayoutEnum layout;
 
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Printing> printings = new ArrayList<>();
 
     private String name;
-    private int manaValue;
+    private double manaValue;
     private Set<ColorEnum> colorIdentity;
 
 

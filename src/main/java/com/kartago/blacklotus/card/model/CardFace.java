@@ -32,9 +32,10 @@ public class CardFace {
 
     private String name;
     private String manaCost;
-    private int manaValue;
+    private double manaValue;
     private Set<ColorEnum> colors;
     private String typeLine;
+    @Column(columnDefinition = "TEXT")
     private String oracleText;
 
     //Optionals

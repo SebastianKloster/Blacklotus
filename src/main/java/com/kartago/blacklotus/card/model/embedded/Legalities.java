@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
+@lombok.AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Legalities {
