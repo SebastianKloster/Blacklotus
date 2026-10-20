@@ -36,3 +36,4 @@ build/
 !/src/test/**/
 !/src/test/java/com/kartago/blacklotus/importer/**
 !/src/test/resources/application.properties
+/src/test/
