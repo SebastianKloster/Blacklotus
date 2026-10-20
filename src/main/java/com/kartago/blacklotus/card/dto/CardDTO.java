@@ -21,7 +21,7 @@ public class CardDTO {
     private LayoutEnum layout;
     private List<Long> printingIds;
     private String name;
-    private double manaValue;
+    private int manaValue;
     private Set<ColorEnum> colorIdentity;
     private boolean isGameChanger;
     private Legalities legalities;
@@ -34,7 +34,7 @@ public class CardDTO {
         private int faceIndex;
         private String name;
         private String manaCost;
-        private double manaValue;
+        private int manaValue;
         private Set<ColorEnum> colors;
         private String typeLine;
         private String oracleText;

@@ -45,7 +45,7 @@ public class Card {
     private List<Printing> printings = new ArrayList<>();
 
     private String name;
-    private double manaValue;
+    private int manaValue;
     private Set<ColorEnum> colorIdentity;
 
 

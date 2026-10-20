@@ -32,7 +32,7 @@ public class CardFace {
 
     private String name;
     private String manaCost;
-    private double manaValue;
+    private int manaValue;
     private Set<ColorEnum> colors;
     private String typeLine;
     @Column(columnDefinition = "TEXT")
