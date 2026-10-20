@@ -6,7 +6,6 @@ import com.kartago.blacklotus.card.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +28,7 @@ public class CardServiceImpl implements CardService{
 
     @Override
     public List<CardSimplifiedDTO> getByAutocompletedName(String name) {
-        List<Card> cardList = repo.findTop5ByNombreStartingWithIgnoreCase(name);
+        List<Card> cardList = repo.findTop5ByNameStartingWithIgnoreCase(name);
         return cardList.stream().map(this::toCardSimplifiedDTO).toList();
     }
 
@@ -40,7 +39,7 @@ public class CardServiceImpl implements CardService{
 
     @Override
     public List<Card> getAllLayouts() {
-        return List.of();
+        return repo.findRandomCardPerLayout();
     }
 
     public CardSimplifiedDTO toCardSimplifiedDTO (Card card) {

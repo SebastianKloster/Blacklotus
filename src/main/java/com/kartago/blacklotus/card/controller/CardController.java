@@ -52,5 +52,8 @@ public class CardController {
     }
 
     //Get sample of one random card for each layout type for testing
-
+    @GetMapping("/layouts")
+    public ResponseEntity<List<Card>> getAllLayouts() {
+        return ResponseEntity.ok(service.getAllLayouts());
+    }
 }
