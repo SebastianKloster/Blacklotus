@@ -1,5 +1,6 @@
 package com.kartago.blacklotus.card.service;
 
+import com.kartago.blacklotus.card.dto.CardDTO;
 import com.kartago.blacklotus.card.dto.CardSimplifiedDTO;
 import com.kartago.blacklotus.card.model.Card;
 import org.springframework.data.domain.Page;
@@ -16,4 +17,7 @@ public interface CardService {
     List<CardSimplifiedDTO> getByAutocompletedName(String name);
     Page<Card> getAll(Pageable pageable);
     List<Card> getAllLayouts();
+
+    CardDTO toCardDTO(Card card);
+    CardSimplifiedDTO toCardSimplifiedDTO(Card card);
 }

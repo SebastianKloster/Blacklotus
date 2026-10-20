@@ -1,5 +1,6 @@
 package com.kartago.blacklotus.card.controller;
 
+import com.kartago.blacklotus.card.dto.CardDTO;
 import com.kartago.blacklotus.card.dto.CardSimplifiedDTO;
 import com.kartago.blacklotus.card.model.Card;
 import com.kartago.blacklotus.card.service.CardService;
@@ -21,21 +22,25 @@ public class CardController {
     CardService service;
 
     //Get card by id
-    @GetMapping("/{id}")
-    public ResponseEntity<Card> getById(@PathVariable Long id) {
-        Card card = service.findById(id).orElseThrow(
-                ()-> new ElementoNoEncontradoException("No se encuentra la carta con id:"+id)
+    @GetMapping("/id/{id}")
+    public ResponseEntity<CardDTO> getById(@PathVariable Long id) {
+        CardDTO cardDTO = service.toCardDTO(
+                service.findById(id).orElseThrow(
+                        ()-> new ElementoNoEncontradoException("No se encuentra la carta con id:"+id)
+                )
         );
-        return ResponseEntity.ok(card);
+        return ResponseEntity.ok(cardDTO);
     }
 
     //Get card by name
     @GetMapping("/{name}")
-    public ResponseEntity<Card> getByName(@PathVariable String name) {
-        Card card = service.findByName(name).orElseThrow(
-                ()-> new ElementoNoEncontradoException("No se encuentra la carta con el nombre: "+name)
+    public ResponseEntity<CardDTO> getByName(@PathVariable String name) {
+        CardDTO CardDTO = service.toCardDTO(
+                service.findByName(name).orElseThrow(
+                        ()-> new ElementoNoEncontradoException("No se encuentra la carta con el nombre: "+name)
+                )
         );
-        return ResponseEntity.ok(card);
+        return ResponseEntity.ok(CardDTO);
     }
 
     //Get simplified cards by name showing while writing
@@ -46,14 +51,14 @@ public class CardController {
 
     //Get page of 60 cards for testing
     @GetMapping()
-    public ResponseEntity<Page<Card>> getAll(@PageableDefault(size = 60) Pageable pageable) {
-        Page<Card> cards = service.getAll(pageable);
+    public ResponseEntity<Page<CardDTO>> getAll(@PageableDefault(size = 60) Pageable pageable) {
+        Page<CardDTO> cards = service.getAll(pageable).map(card -> service.toCardDTO(card));
         return ResponseEntity.ok(cards);
     }
 
     //Get sample of one random card for each layout type for testing
     @GetMapping("/layouts")
-    public ResponseEntity<List<Card>> getAllLayouts() {
-        return ResponseEntity.ok(service.getAllLayouts());
+    public ResponseEntity<List<CardDTO>> getAllLayouts() {
+        return ResponseEntity.ok(service.getAllLayouts().stream().map(card -> service.toCardDTO(card)).toList());
     }
 }

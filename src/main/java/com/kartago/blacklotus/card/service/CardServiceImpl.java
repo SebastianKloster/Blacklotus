@@ -1,8 +1,10 @@
 package com.kartago.blacklotus.card.service;
 
+import com.kartago.blacklotus.card.dto.CardDTO;
 import com.kartago.blacklotus.card.dto.CardSimplifiedDTO;
 import com.kartago.blacklotus.card.model.Card;
 import com.kartago.blacklotus.card.repository.CardRepository;
+import com.kartago.blacklotus.printing.model.Printing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,7 +44,41 @@ public class CardServiceImpl implements CardService{
         return repo.findRandomCardPerLayout();
     }
 
-    public CardSimplifiedDTO toCardSimplifiedDTO (Card card) {
+    @Override
+    public CardDTO toCardDTO(Card card) {
+        List<CardDTO.CardFaceDTO> cardFaces = card.getCardFaces().stream()
+                .map(face -> new CardDTO.CardFaceDTO(
+                        face.getId(),
+                        face.getFaceIndex(),
+                        face.getName(),
+                        face.getManaCost(),
+                        face.getManaValue(),
+                        face.getColors(),
+                        face.getTypeLine(),
+                        face.getOracleText(),
+                        face.getPower(),
+                        face.getToughness(),
+                        face.getLoyalty(),
+                        face.getDefense()
+                ))
+                .toList();
+
+        return new CardDTO(
+                card.getId(),
+                card.getOracleId(),
+                cardFaces,
+                card.getLayout(),
+                card.getPrintings().stream().map(Printing::getId).toList(),
+                card.getName(),
+                card.getManaValue(),
+                card.getColorIdentity(),
+                card.isGameChanger(),
+                card.getLegalities()
+        );
+    }
+
+    @Override
+    public CardSimplifiedDTO toCardSimplifiedDTO(Card card) {
         return new CardSimplifiedDTO(
                 card.getId(), //id
                 card.getName() //name
