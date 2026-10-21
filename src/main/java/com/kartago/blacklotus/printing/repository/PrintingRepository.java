@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PrintingRepository extends JpaRepository<Printing, Long> {
     Page<Printing> getByCardId(Long cardId, Pageable pageable);
+
+
 }

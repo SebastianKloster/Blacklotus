@@ -5,6 +5,7 @@ import com.kartago.blacklotus.card.dto.CardSimplifiedDTO;
 import com.kartago.blacklotus.card.model.Card;
 import com.kartago.blacklotus.card.repository.CardRepository;
 import com.kartago.blacklotus.printing.model.Printing;
+import com.kartago.blacklotus.printing.service.PrintingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,8 @@ import java.util.Optional;
 public class CardServiceImpl implements CardService{
     @Autowired
     CardRepository repo;
+    @Autowired
+    PrintingService printingService;
 
     @Override
     public Optional<Card> findById(Long id) {
