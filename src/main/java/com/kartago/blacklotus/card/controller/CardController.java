@@ -2,17 +2,16 @@ package com.kartago.blacklotus.card.controller;
 
 import com.kartago.blacklotus.card.dto.CardDTO;
 import com.kartago.blacklotus.card.dto.CardSimplifiedDTO;
-import com.kartago.blacklotus.card.model.Card;
+import com.kartago.blacklotus.printing.dto.PrintingDTO;
 import com.kartago.blacklotus.card.service.CardService;
 import com.kartago.blacklotus.exceptions.ElementoNoEncontradoException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.PublicKey;
 import java.util.List;
 
 @RestController
@@ -51,14 +50,13 @@ public class CardController {
 
     //Get page of 60 cards for testing
     @GetMapping()
-    public ResponseEntity<Page<CardDTO>> getAll(@PageableDefault(size = 60) Pageable pageable) {
-        Page<CardDTO> cards = service.getAll(pageable).map(card -> service.toCardDTO(card));
-        return ResponseEntity.ok(cards);
+    public ResponseEntity<Page<PrintingDTO>> getAll(@PageableDefault(size = 60, sort = "id") Pageable pageable) {
+        return ResponseEntity.ok(service.getAll(pageable));
     }
 
     //Get sample of one random card for each layout type for testing
     @GetMapping("/layouts")
-    public ResponseEntity<List<CardDTO>> getAllLayouts() {
-        return ResponseEntity.ok(service.getAllLayouts().stream().map(card -> service.toCardDTO(card)).toList());
+    public ResponseEntity<List<PrintingDTO>> getAllLayouts() {
+        return ResponseEntity.ok(service.getAllLayouts());
     }
 }

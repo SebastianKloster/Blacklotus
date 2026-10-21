@@ -7,10 +7,8 @@ import com.kartago.blacklotus.printing.model.Printing;
 import java.util.List;
 
 public interface PrintingService {
-//    Printing getPrintOfCard(Card card);
     Printing getPrintOfCard(Long cardId);
 
-//    List<Printing> getAllPrintingOfCard(Card card);
     List<Printing> getAllPrintingOfCard(Long cardId);
 
     List<PrintingDTO> getPrintOfCardList(List<Card> cardList);

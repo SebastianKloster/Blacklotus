@@ -7,8 +7,11 @@ import com.kartago.blacklotus.card.repository.CardRepository;
 import com.kartago.blacklotus.printing.model.Printing;
 import com.kartago.blacklotus.printing.service.PrintingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import com.kartago.blacklotus.printing.dto.PrintingDTO;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,13 +41,17 @@ public class CardServiceImpl implements CardService{
     }
 
     @Override
-    public Page<Card> getAll(Pageable pageable) {
-        return repo.findAll(pageable);
+    @Transactional(readOnly = true)
+    public Page<PrintingDTO> getAll(Pageable pageable) {
+        Page<Card> cards = repo.findAll(pageable);
+        List<PrintingDTO> printings = printingService.getPrintOfCardList(cards.getContent());
+        return new PageImpl<>(printings, cards.getPageable(), cards.getTotalElements());
     }
 
     @Override
-    public List<Card> getAllLayouts() {
-        return repo.findRandomCardPerLayout();
+    @Transactional(readOnly = true)
+    public List<PrintingDTO> getAllLayouts() {
+        return printingService.getPrintOfCardList(repo.findRandomCardPerLayout());
     }
 
     @Override

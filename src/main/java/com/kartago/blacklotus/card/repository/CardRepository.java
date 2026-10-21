@@ -21,6 +21,7 @@ public interface CardRepository extends JpaRepository<Card, Long> {
                 FROM card c
             ) ranked_cards
             WHERE row_num = 1
+            ORDER BY layout
             """, nativeQuery = true)
     List<Card> findRandomCardPerLayout();
 }
