@@ -1,4 +1,4 @@
-package com.kartago.blacklotus.expansion;
+package com.kartago.blacklotus.expansion.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

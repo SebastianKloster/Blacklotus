@@ -1,7 +1,7 @@
 package com.kartago.blacklotus.importer;
 
 import com.kartago.blacklotus.card.model.Card;
-import com.kartago.blacklotus.expansion.Expansion;
+import com.kartago.blacklotus.expansion.model.Expansion;
 import com.kartago.blacklotus.printing.model.Printing;
 import jakarta.persistence.EntityManager;
 import org.slf4j.Logger;

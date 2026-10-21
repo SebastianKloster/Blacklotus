@@ -3,7 +3,7 @@ package com.kartago.blacklotus.importer;
 import com.kartago.blacklotus.card.model.*;
 import com.kartago.blacklotus.card.model.embedded.Legalities;
 import com.kartago.blacklotus.card.model.enums.*;
-import com.kartago.blacklotus.expansion.Expansion;
+import com.kartago.blacklotus.expansion.model.Expansion;
 import com.kartago.blacklotus.printing.model.*;
 import com.kartago.blacklotus.printing.model.embedded.*;
 import com.kartago.blacklotus.printing.model.enums.FinishEnum;

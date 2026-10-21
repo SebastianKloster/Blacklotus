@@ -37,3 +37,5 @@ build/
 !/src/test/java/com/kartago/blacklotus/importer/**
 !/src/test/resources/application.properties
 /src/test/
+/IMPORTING.md
+/sql/2026-10-20-expand-card-layout-check.sql
